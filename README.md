@@ -13,17 +13,6 @@
 Quill deltas renderer, converts deltas to HTML, the Quill attributes supported are listed in a table below.
 I'm working on support for the remaining attributes and additional parsers (markdown etc.)
 
-## Version 3.0 in the works
-
-I've had trouble getting the testMultipleParagraphsWithAttributes test to pass, I've tried a few times over the last 
-couple of weeks to get the test to pass without adding anymore hacks, I failed. 
-
-The core code isn't flexible enough, I've mapped out a more flexible design for version 3.0.
-
-## PHP 5.6
-
-Use version 1.01.1 if you need PHP 5.6 support.
-
 ## Installation
  
 The easiest way to use the renderer is with composer. ```composer require deanblackborough/php-quill-renderer```, 
@@ -51,27 +40,28 @@ echo $renderer->render();
 
 ## Quill attributes support
 
-Attribute | v1+ | v2+
---- | --- | ---
-Bold | Yes | Yes
-Italic | Yes | Yes
-Link | Yes | Yes
-Strike | Yes | Yes
-Script:Sub | Yes | Yes
-Script:Super | Yes | Yes
-Underline | Yes | Yes
-Header | Yes | Yes
-Image | Yes | Yes
-List | Yes | Yes
-Indent/Outdent | Not yet | No*
-Text direction | Not yet | No*
-Color | Not yet | No*
-Font | Not yet | No*
-Text align | Not yet | No*
-Block quote | Not yet | No*
-Code block | Not yet | No*
+Attribute | v1+ | v2+ | v3+
+--- | --- | --- | ---
+Bold | Yes | Yes | Yes
+Italic | Yes | Yes | Yes
+Link | Yes | Yes | Yes
+Strike | Yes | Yes | Yes
+Script:Sub | Yes | Yes | Yes
+Script:Super | Yes | Yes | Yes
+Underline | Yes | Yes | Yes
+Header | Yes | Yes | Yes
+Image | Yes | Yes | Yes
+List | Yes | Yes | Yes
+Indent/Outdent | No | No | In progress
+Text direction | No | No | In progress
+Color | Not yet | No | In progress
+Font | Not yet | No | In progress
+Text align | No | No | In progress
+Block quote | No | No | In progress
+Code block | No | No | In progress
+Paragraph bug | Yes | Yes | No
 
-(*) Attribute support may be back ported to v1.
+
 
 Attribute | HTML Tag
 --- | --- 
@@ -86,9 +76,14 @@ Header | `<h[n]>`
 Image | `<img>`
 List | `<ul>` `<ol>`
 
+## PHP 5.6
+
+Use version 1.01.1 if you need PHP 5.6 support.
+
 ## Credits
 
-carlos https://github.com/sald19 [Bugfix] v1.01.0
+* carlos https://github.com/sald19 [Bugfix] - v1.01.0
+* Ciprian https://github.com/ciprian-cimpan - Noticing the 'Paragraph bug'
 
 ## Warnings
 
